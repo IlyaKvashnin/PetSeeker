@@ -2,16 +2,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #338573;
 }
 
 .footer_paragraph {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 80px;
-    color: #FFFFFF;
+    margin: 0;
+!important;
+}
+
+.header {
+    padding-top: 1rem !important;
+}
+
+.album {
+    background-color: #F6F7FA;
 }
 
 .login {
@@ -33,11 +36,12 @@
 .rectangle {
     width: 70%;
     height: 40px;
-    border-radius:5px;
-    margin:auto;
-    background: #338573;}
+    border-radius: 5px;
+    margin: auto;
+    background: #338573;
+}
 
-.text_right{
+.text_right {
     color: #ffffff;
     text-align: right;
 }
@@ -97,6 +101,7 @@ img {
 }
 
 .ordinary_text {
+    font-family: 'Noto Sans', sans-serif;
     text-align: center;
     color: #338573;
 }
@@ -181,5 +186,5 @@ img {
 
 .mb-3 {
     margin-top: 10px;
-    margin-bottom: 1rem!important;
+    margin-bottom: 1rem !important;
 }
