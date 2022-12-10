@@ -9,6 +9,17 @@
 !important;
 }
 
+.header_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F4F5F7;
+    height: 110px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    line-height: 80px;
+}
+
 .header {
     padding-top: 1rem !important;
 }

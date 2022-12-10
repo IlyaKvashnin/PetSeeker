@@ -1,0 +1,14 @@
+.main_about {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_about-text {
+    flex-basis: 60%;
+}
+
+.main_about-img {
+    flex-basis: 40%;
+}
