@@ -13,3 +13,173 @@
     line-height: 80px;
     color: #FFFFFF;
 }
+
+.login {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.navigation__btn {
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.rectangle {
+    width: 70%;
+    height: 40px;
+    border-radius:5px;
+    margin:auto;
+    background: #338573;}
+
+.text_right{
+    color: #ffffff;
+    text-align: right;
+}
+
+.text-ligth {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.link-gray-dk {
+    color: #979799;
+}
+
+.breadcrumbs__item {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.breadcrumbs__item:after {
+    content: "/";
+    margin-left: 5px;
+}
+
+.breadcrumbs__item:last-child {
+    margin-right: 0;
+    pointer-events: none;
+}
+
+.breadcrumbs__item:last-child:after {
+    display: none;
+}
+
+.new-ad-start__illustration {
+    margin-bottom: 25px;
+    margin-top: 0;
+    width: 355px;
+}
+
+.new-ad-start__illustration {
+    margin: 45px auto 30px;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.btn-fill-accent:hover {
+    background-color: #29985f;
+    color: #fff;
+}
+
+.btn-fill-accent {
+    background-color: #258a56;
+    color: #fff;
+}
+
+.ordinary_text {
+    text-align: center;
+    color: #338573;
+}
+
+.new-ad-start__title {
+    font-size: 18px;
+    margin-bottom: 23px;
+    text-align: center;
+}
+
+.new-ad-start__title {
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.new-ad-start__lose {
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.new-ad-start__find, .new-ad-start__lose {
+    padding: 0 30px;
+}
+
+.btn-fill-accent-lt {
+    background-color: #cfe9dc;
+    color: #33463c;
+}
+
+.btn {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 15px;
+    height: 42px;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn, .link {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    align-items: center;
+    cursor: pointer;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    justify-content: center;
+    -webkit-transition: .1s;
+    -o-transition: .1s;
+    transition: .1s;
+}
+
+.btn {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    height: auto;
+    width: auto;
+}
+
+.new-ad-start__buttons {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+}
+
+.mb-3 {
+    margin-top: 10px;
+    margin-bottom: 1rem!important;
+}

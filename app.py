@@ -14,6 +14,26 @@ def posts():
     return render_template("posts.html")
 
 
+@app.route('/new-ad')
+def new_ad():
+    return render_template("new-ad.html")
+
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+
+@app.route('/form-add/find')
+def find():
+    return render_template("form-add/find.html")
+
+
+@app.route('/form-add/lost')
+def lose():
+    return render_template("form-add/lost.html")
+
+
 @app.route('/create/<string:id>')
 def create(id):
     return "Create post " + id
