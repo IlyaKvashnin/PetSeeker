@@ -14,15 +14,6 @@
     color: #FFFFFF;
 }
 
-.login {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: center;
-
-    color: #FFFFFF;
-}
-
 .navigation__btn {
     margin-right: 10px;
     padding-left: 10px;
@@ -182,4 +173,15 @@ img {
 .mb-3 {
     margin-top: 10px;
     margin-bottom: 1rem!important;
+}
+
+.mb-btn {
+    margin-bottom: 50px;
+}
+
+.radio-btn__title {
+    width: 100px;
+    height: 47px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
