@@ -5,8 +5,9 @@
 {% endblock %}
 
 {% block body %}
+<div class="container">
 <section class="section section-pb new-ad">
-    <div class="col-9 mx-auto">
+    <div class="mx-auto">
         <div class="section-top">
             <div class="h1-2 section-top__title">
                 <h1>New ad</h1>
@@ -17,15 +18,23 @@
             </div>
         </div>
         <div class="new-ad-start">
-            <img src="/static/img/example/new-ad/logo.png" alt="у девушки с поводка сбежала собака" class="new-ad-start__illustration">
+            <img src="/static/img/example/new-ad/logo.png" alt="у девушки с поводка сбежала собака"
+                 class="new-ad-start__illustration">
             <div class="new-ad-start__title">What happened?</div>
             <div class="new-ad-start__buttons mb-btn">
                 <a href="/form-add/lost" class="btn btn-success btn-fill-accent btn-lg navigation__btn">I lost a pet</a>
-                <a href="/form-add/find" class="btn btn-outline-success new-ad-start__find btn-lg navigation__btn">I found a pet</a>
+                <a href="/form-add/find" class="btn btn-outline-success new-ad-start__find btn-lg navigation__btn">I
+                    found a pet</a>
             </div>
         </div>
     </div>
 </section>
+</div>
 <div class="new-ad-start">
 </div>
+{% endblock %}
+
+
+{% block header %}
+Creating an ad
 {% endblock %}

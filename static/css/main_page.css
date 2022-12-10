@@ -1,0 +1,12 @@
+.text_logo {
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 49px;
+    color: #198754;
+}
+
+.album {
+    padding-bottom: 5em;
+}

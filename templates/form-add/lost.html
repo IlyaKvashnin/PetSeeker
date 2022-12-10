@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Объявления
+Create ad
 {% endblock %}
 
 {% block body %}
-    <div class="col-9 mx-auto">
+<div class="container">
+    <div class="mx-auto">
     <main>
         <div class="new-ad__header">
             <div class="h1-2 section-top__title">
@@ -96,7 +97,7 @@
                 </div>
 
                 <h3 class="mb-0 mt-4">5/5: Contact information</h3>
-                <p class="mt-2">When and where did you lose your pet?</p>
+                <p class="mt-2">Write information about yourself so that those who found your pet can contact you</p>
 
                 <form class="needs-validation" novalidate="">
                     <div class="row g-3">
@@ -124,6 +125,14 @@
                                 Please enter a valid email address for shipping updates.
                             </div>
                         </div>
+
+                        <div class="col-12 mb-3">
+                            <label for="addpetstep5form-phone" class="form-label">Phone</label>
+                            <input type="tel" id="addpetstep5form-phone" class="input__field nextall form-control bfh-phone" name="AddPetStep5Form[phone]" autocomplete="off" aria-required="true" placeholder="+7 912 345-67-89" aria-invalid="false">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
                     </div>
 
                     <hr class="my-4">
@@ -133,14 +142,10 @@
             </div>
         </div>
     </main>
-
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017–2022 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-    </footer>
     </div>
+</div>
+{% endblock %}
+
+{% block header %}
+Creating an ad
 {% endblock %}
