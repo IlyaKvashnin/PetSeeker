@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from sqlalchemy import exc
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///petsSeeker.db'
 db = SQLAlchemy(app)
@@ -19,16 +20,25 @@ class User(db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
+    address = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
     photo = db.Column(db.String(200), nullable=True)
     date_of_publication = db.Column(db.DateTime, default=datetime.utcnow)
     date_of_accident = db.Column(db.DateTime, nullable=True)
-
+    case_id = db.Column(db.Integer, db.ForeignKey('case.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     gender_id = db.Column(db.Integer, db.ForeignKey('gender.id'))
     type_of_pet_id = db.Column(db.Integer, db.ForeignKey('type.id'))
     isActual = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return '<Post %r>' % self.id
+
+
+class Case(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    case = db.Column(db.String(20), nullable=False)
+    posts = db.relationship('Post', backref='case', lazy='dynamic')
 
     def __repr__(self):
         return '<Post %r>' % self.id
@@ -64,7 +74,7 @@ def about():
 
 
 @app.route('/posts')
-def posts():
+def post():
     posts = Post.query.order_by(Post.date_of_publication).all()
     return render_template("posts.html", posts=posts)
 
@@ -81,26 +91,72 @@ def login():
 
 @app.route('/form-add/find')
 def find():
-    return render_template("form-add/find.html")
+    if request.method == "POST":
+        address = request.form['address']
+        description = request.form['description']
+        gender = request.form.get('genders')
+        type_of_pet = request.form.get('types')
+        date_of_accident = datetime.strptime(request.form.get('date'), '%Y-%m-%d')
+        name = request.form['firstName'] + ' ' + request.form['lastName']
+        phone = request.form['phone']
+        email = request.form['email']
+        user = User(name=name, phoneNumber=phone, email=email)
+        try:
+            db.session.add(user)
+            db.session.commit()
+        except exc.IntegrityError:
+            db.session.rollback()
+        except:
+            return "При добавлении пользователя произошла ошибка"
+        post = Post(description=description, isActual=1, address=address, gender_id=gender, type_of_pet_id=type_of_pet,
+                    date_of_accident=date_of_accident, user_id=user.id, case_id=2)
+
+        try:
+
+            db.session.add(post)
+            db.session.commit()
+            return redirect('/posts')
+        except exc.IntegrityError:
+            db.session.rollback()
+        except:
+            return "При добавлении объявления произошла ошибка"
+
+    else:
+        return render_template("form-add/find2.html")
 
 
 @app.route('/form-add/lost', methods=['POST', 'GET'])
-def lose():
+def lost():
     if request.method == "POST":
-        title = request.form['title']
+        address = request.form['address']
         description = request.form['description']
-        #gender1 = Gender(gender='male')
-        #gender2 = Gender(gender='female')
-        #db.session.add(gender1)
-        #db.session.add(gender2)
-        post = Post(title=title, description=description, isActual=1)
+        gender = request.form.get('genders')
+        type_of_pet = request.form.get('types')
+        date_of_accident = datetime.strptime(request.form.get('date'), '%Y-%m-%d')
+        name = request.form['firstName'] + ' ' + request.form['lastName']
+        phone = request.form['phone']
+        email = request.form['email']
+        user = User(name=name, phoneNumber=phone, email=email)
+        try:
+            db.session.add(user)
+            db.session.commit()
+        except exc.IntegrityError:
+            db.session.rollback()
+        except:
+            return "При добавлении пользователя произошла ошибка"
+        post = Post(description=description, isActual=1, address=address, gender_id=gender, type_of_pet_id=type_of_pet,
+                    date_of_accident=date_of_accident, user_id=user.id, case_id=1)
 
         try:
+
             db.session.add(post)
             db.session.commit()
-            return redirect('/')
+            return redirect('/posts')
+        except exc.IntegrityError:
+            db.session.rollback()
         except:
-            return "При добавлении поста произошла ошибка"
+            return "При добавлении объявления произошла ошибка"
+
     else:
         return render_template("form-add/lost.html")
 

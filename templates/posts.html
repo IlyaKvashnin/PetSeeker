@@ -6,9 +6,10 @@
 
 {% block body %}
 <div class="container">
-    <h1>Все объявления</h1>
-        <h3>{{ posts[0].title}}</h3>
-     <h4>  {{posts[0].description}}</h4>
+    <h3>{{ posts[0].title}}</h3>
+    <h4>  {{posts[0].description}}</h4>
+    <h4>  Gender: {{posts[0].gender.gender}}</h4>
+    <h4>  Type: {{posts[0].type.type_of_pet}}</h4>
 </div>
 {% endblock %}
 

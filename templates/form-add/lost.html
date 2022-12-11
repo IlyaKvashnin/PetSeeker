@@ -6,7 +6,8 @@ Create ad
 
 {% block body %}
 <div class="container">
-    <div class="mx-auto">
+
+         <div class="mx-auto">
     <main>
         <div class="new-ad__header">
             <div class="h1-2 section-top__title">
@@ -21,91 +22,89 @@ Create ad
 
         <div class="row g-5">
             <div class="col-md-7 col-lg-8">
-                <h3 class="mb-0 mt-4">1/5: Who's missing?</h3>
-                <p class="mt-2">Specify the type and gender of your pet</p>
 
-                <form class="needs-validation" novalidate="">
+                <form class="needs-validation" novalidate="" method="post">
+                    <h3 class="mb-0 mt-4">1/5: Who's missing?</h3>
+                    <p class="mt-2">Specify the type and gender of your pet</p>
+
                     <div class="row g-3">
 
                         <p class="mb-0 link-gray-dk">The type of pet</p>
                         <hr class="my-1">
 
                         <div class="" role="group">
-                            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1" autocomplete="off" checked>
-                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio1">Cat</label>
+                            <input type="radio" class="btn-check" name="types" id="type1" value="1" autocomplete="off" checked>
+                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="type1">Cat</label>
 
-                            <input type="radio" class="btn-check" name="btnradio1" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio2">Dog</label>
+                            <input type="radio" class="btn-check" name="types" id="type2" value="2" autocomplete="off">
+                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="type2">Dog</label>
                         </div>
 
                         <p class="mb-0 link-gray-dk">The gender of pet</p>
                         <hr class="my-1">
 
                         <div class="" role="group">
-                            <input type="radio" class="btn-check" name="btnradio2" id="btnradio3" autocomplete="off" checked>
-                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio3">Male</label>
+                            <input type="radio" class="btn-check" name="genders" id="gender1" value="1" autocomplete="off" checked>
+                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="gender1">Male</label>
 
-                            <input type="radio" class="btn-check" name="btnradio2" id="btnradio4" autocomplete="off">
-                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio4">Female</label>
+                            <input type="radio" class="btn-check" name="genders" id="gender2" value="2"  autocomplete="off">
+                            <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="gender2">Female</label>
                         </div>
 
                     </div>
-                </form>
 
-                <h3 class="mb-0 mt-4">2/5: Photos</h3>
-                <p class="mt-2">Add photos of your pet to increase the chances of finding a pet.</p>
+                    <h3 class="mb-0 mt-4">2/5: Photos</h3>
+                    <p class="mt-2">Add photos of your pet to increase the chances of finding a pet.</p>
 
-                <p class="mb-0 link-gray-dk">Photos</p>
-                <hr class="my-1">
+                    <p class="mb-0 link-gray-dk">Photos</p>
+                    <hr class="my-1">
 
-                <div class="custom-dropzone__message-wrapper">
-                    <div class="input__wrapper">
-                        <input name="photo" type="file" id="input__file" class="input input__file" accept=".png" multiple>
-                        <label for="input__file" class="btn btn-success btn-lg input__size">
-                            <span class="input__file-button-text">Select photo</span>
-                        </label>
+                    <div class="custom-dropzone__message-wrapper">
+                        <div class="input__wrapper">
+                            <input name="photo" type="file" id="input__file" class="input input__file" accept=".png" multiple>
+                            <label for="input__file" class="btn btn-success btn-lg input__size">
+                                <span class="input__file-button-text">Select photo</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
 
-                <h3 class="mb-0 mt-4">3/5: Time and place</h3>
-                <p class="mt-2">When and where did you lose your pet?</p>
+                    <h3 class="mb-0 mt-4">3/5: Time and place</h3>
+                    <p class="mt-2">When and where did you lose your pet?</p>
 
-                <form action="needs-validation" novalidate="">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="addpetstep3form-date" class="form-label">Date</label>
-                            <input type="date" id="addpetstep3form-date" class="form-control" name="AddPetStep3Form[date]" value="2022-12-10" autocomplete="off" max="2022-12-10" placeholder="Сегодня,  10 декабря 2022" aria-required="true" aria-invalid="false">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" id="date" class="form-control" name="date" value="2022-12-12" autocomplete="off" max="2022-12-12" placeholder="Сегодня,  12 декабря 2022" aria-required="true" aria-invalid="false">
                         </div>
 
                         <div class="col-12">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" required="">
                             <div class="invalid-feedback">
                                 Please enter your shipping address.
                             </div>
                         </div>
                     </div>
-                </form>
 
-                <h3 class="mb-0 mt-4">4/5: Description</h3>
-                <p class="mt-2">Add additional information that will help you find your pet faster. For example, the breed, color, additional signs, as well as the circumstances under which the pet disappeared.</p>
-
-                <div class="col-sm-12">
-                    <textarea name="message" class="form-control"></textarea>
-                    <div class="invalid-feedback">
-                        Valid first name is required.
+                    <h3 class="mb-0 mt-4">4/5: Description</h3>
+                    <p class="mt-2">Add additional information that will help you find your pet faster. For example, the breed, color, additional signs, as well as the circumstances under which the pet disappeared.</p>
+                    <div class="col-sm-12">
+                        <textarea name="description" id="description" class="form-control"></textarea>
+                        <div class="invalid-feedback">
+                            Valid first name is required.
+                        </div>
                     </div>
-                </div>
 
-                <h3 class="mb-0 mt-4">5/5: Contact information</h3>
-                <p class="mt-2">Write information about yourself so that those who found your pet can contact you</p>
 
-                <form class="needs-validation" novalidate="">
+
+                    <h3 class="mb-0 mt-4">5/5: Contact information</h3>
+                    <p class="mt-2">Write information about yourself so that those who found your pet can contact you</p>
+
                     <div class="row g-3">
 
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required="">
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
@@ -113,7 +112,7 @@ Create ad
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="" required="">
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -121,24 +120,22 @@ Create ad
 
                         <div class="col-12 mb-3">
                             <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                             <div class="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                             </div>
                         </div>
 
                         <div class="col-12 mb-3">
-                            <label for="addpetstep5form-phone" class="form-label">Phone</label>
-                            <input type="tel" id="addpetstep5form-phone" class="input__field nextall form-control bfh-phone" name="AddPetStep5Form[phone]" autocomplete="off" aria-required="true" placeholder="+7 912 345-67-89" aria-invalid="false">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" id="phone" class="input__field nextall form-control bfh-phone" name="phone" autocomplete="off" aria-required="true" placeholder="+7 912 345-67-89" aria-invalid="false">
                             <div class="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                             </div>
                         </div>
+                        <hr class="my-4">
+                        <button class="w-100 btn btn-success btn-lg" type="submit">Continue</button>
                     </div>
-
-                    <hr class="my-4">
-
-                    <button class="w-100 btn btn-success btn-lg" type="submit">Continue</button>
                 </form>
 
                 <script>
@@ -164,6 +161,8 @@ Create ad
         </div>
     </main>
     </div>
+
+
 </div>
 {% endblock %}
 
