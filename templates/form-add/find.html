@@ -22,7 +22,7 @@ Create ad
             <div class="row g-5">
                 <div class="col-md-7 col-lg-8">
                     <h3 class="mb-0 mt-4">1/5: Who was find?</h3>
-                    <p class="mt-2">Specify the type and gender of your pet</p>
+                    <p class="mt-2">Specify the type and gender of pet</p>
 
                     <form class="needs-validation" novalidate="">
                         <div class="row g-3">
@@ -32,10 +32,10 @@ Create ad
 
                             <div class="" role="group">
                                 <input type="radio" class="btn-check" name="btnradio1" id="btnradio1" autocomplete="off" checked>
-                                <label class="btn btn-outline-success btn-lg radio-btn__title" for="btnradio1">Cat</label>
+                                <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio1">Cat</label>
 
                                 <input type="radio" class="btn-check" name="btnradio1" id="btnradio2" autocomplete="off">
-                                <label class="btn btn-outline-success btn-lg radio-btn__title" for="btnradio2">Dog</label>
+                                <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio2">Dog</label>
                             </div>
 
                             <p class="mb-0 link-gray-dk">The gender of pet</p>
@@ -43,10 +43,10 @@ Create ad
 
                             <div class="" role="group">
                                 <input type="radio" class="btn-check" name="btnradio2" id="btnradio3" autocomplete="off" checked>
-                                <label class="btn btn-outline-success btn-lg radio-btn__title" for="btnradio3">Male</label>
+                                <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio3">Male</label>
 
                                 <input type="radio" class="btn-check" name="btnradio2" id="btnradio4" autocomplete="off">
-                                <label class="btn btn-outline-success btn-lg radio-btn__title" for="btnradio4">Female</label>
+                                <label class="btn btn-outline-success btn-lg radio-btn__title btn_form" for="btnradio4">Female</label>
                             </div>
 
                         </div>
@@ -58,12 +58,13 @@ Create ad
                     <p class="mb-0 link-gray-dk">Photos</p>
                     <hr class="my-1">
 
-                    <div class="custom-dropzone__message-wrapper mt-3">
-                        <button type="button" class="btn btn-fill-accent-lt btn-lg btn-success btn-lg">
-                            <object type="image/svg+xml" data="/static/img/main/icon-plus.svg" width="100%" height="100%">
-                            </object>
-                            <span class="btn__title">Select photos</span>
-                        </button>
+                    <div class="custom-dropzone__message-wrapper">
+                        <div class="input__wrapper">
+                            <input name="photo" type="file" id="input__file" class="input input__file" accept=".png" multiple>
+                            <label for="input__file" class="btn btn-success btn-lg input__size">
+                                <span class="input__file-button-text">Select photo</span>
+                            </label>
+                        </div>
                     </div>
 
                     <h3 class="mb-0 mt-4">3/5: Time and place</h3>
