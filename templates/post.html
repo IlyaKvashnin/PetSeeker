@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Post
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<div id="mySlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#mySlider" data-slide-to="0" class=""></li>
+        <li data-target="#mySlider" data-slide-to="1" class=""></li>
+        <li data-target="#mySlider" data-slide-to="2" class="active"></li>
+    </ol>
+    <div class="carousel-inner illustration__post">
+        <div class="carousel-item active">
+            <img src="../static/img/example/check/1.jpg" alt="" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+            <img src="../static/img/example/check/2.jpg" alt="" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+            <img src="../static/img/example/check/3.jpg" alt="" class="d-block w-100">
+        </div>
+    </div>
+    <a href="#mySlider" class="carousel-control-prev" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
+    <a href="#mySlider" class="carousel-control-next" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
+</div>
+
+<div class="card__content">
+    <div class="card__title">
+        <h1>Заголовок</h1>
+        <h2>Адрес</h2>
+    </div>
+    <div class="text text-lt card__descr content">
+        <p>Описание</p>
+    </div>
+</div>
+    <div class="card-information">
+        <div class="card-info">
+            <hr class="my-2 gray-dk-color">
+            <div class="gray-dk-color card-info__title">Номер объявления</div>
+            <div class="card-info__value">rf605299</div>
+        </div>
+        <div class="card-info">
+            <div class="gray-dk-color card-info__title">Пол питомца</div>
+            <div class="card-info__value">Женский</div>
+        </div>
+        <div class="card-info">
+            <div class="gray-dk-color card-info__title">Добавлено</div>
+            <div class="card-info__value">пт, 09.12.2022</div>
+        </div>
+        <div class="card-info">
+            <div class="gray-dk-color card-info__title">
+                Найден(а) </div>
+            <div class="card-info__value">вс, 20.11.2022</div>
+        </div>
+        <div class="card-info">
+            <div class="gray-dk-color card-info__title">
+                Имя нашедшего </div>
+            <div class="card-info__value">Марина</div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block header %}
+Post
+{% endblock %}

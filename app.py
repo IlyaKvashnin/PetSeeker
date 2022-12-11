@@ -171,5 +171,15 @@ def create_post():
     return render_template("create-post.html")
 
 
+@app.route('/post/<int:id>')
+def post(id):
+    return render_template("post.html")
+
+
+@app.errorhandler(404)
+def pageNot(error):
+    return render_template("error.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)
