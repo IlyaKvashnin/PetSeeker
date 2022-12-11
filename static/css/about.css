@@ -7,8 +7,21 @@
 
 .main_about-text {
     flex-basis: 60%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
 }
 
 .main_about-img {
     flex-basis: 40%;
+}
+
+.main_about-img-cat {
+
+}
+
+.main_about-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
 }
