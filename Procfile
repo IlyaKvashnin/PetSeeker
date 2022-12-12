@@ -1,1 +1,1 @@
-web: pip3 install SQLAlchemy Flask-SQLAlchemy; web:gunicorn main:app
+web: pip3 install SQLAlchemy Flask-SQLAlchemy;gunicorn main:app
