@@ -1,10 +1,40 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import time
 from sqlalchemy import exc
+from werkzeug.utils import secure_filename
+import os
+
 app = Flask(__name__)
+UPLOAD_FOLDER = './static/resources'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///petsSeeker.db'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 db = SQLAlchemy(app)
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def upload_file():
+    # check if the post request has the file part
+    print(request.files)
+    if 'photo' not in request.files:
+        flash('No file part')
+    file = request.files['photo']
+    # if user does not select file, browser also
+    # submit a empty part without filename
+    if file.filename == '':
+        flash('No selected file')
+    if file and allowed_file(file.filename):
+        filename = str(int(time.time() * 1000))
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return filename
+    return None
 
 
 class User(db.Model):
@@ -74,7 +104,7 @@ def about():
 
 
 @app.route('/posts')
-def post():
+def posts():
     posts = Post.query.order_by(Post.date_of_publication).all()
     return render_template("posts.html", posts=posts)
 
@@ -93,6 +123,7 @@ def login():
 def find():
     if request.method == "POST":
         address = request.form['address']
+        photo = upload_file()
         description = request.form['description']
         gender = request.form.get('genders')
         type_of_pet = request.form.get('types')
@@ -109,7 +140,7 @@ def find():
         except:
             return "При добавлении пользователя произошла ошибка"
         post = Post(description=description, isActual=1, address=address, gender_id=gender, type_of_pet_id=type_of_pet,
-                    date_of_accident=date_of_accident, user_id=user.id, case_id=2)
+                    date_of_accident=date_of_accident, user_id=user.id, case_id=2, photo=photo)
 
         try:
 
@@ -122,13 +153,14 @@ def find():
             return "При добавлении объявления произошла ошибка"
 
     else:
-        return render_template("form-add/find2.html")
+        return render_template("form-add/find.html")
 
 
 @app.route('/form-add/lost', methods=['POST', 'GET'])
 def lost():
     if request.method == "POST":
         address = request.form['address']
+        photo = upload_file()
         description = request.form['description']
         gender = request.form.get('genders')
         type_of_pet = request.form.get('types')
@@ -145,7 +177,7 @@ def lost():
         except:
             return "При добавлении пользователя произошла ошибка"
         post = Post(description=description, isActual=1, address=address, gender_id=gender, type_of_pet_id=type_of_pet,
-                    date_of_accident=date_of_accident, user_id=user.id, case_id=1)
+                    date_of_accident=date_of_accident, user_id=user.id, case_id=1, photo=photo)
 
         try:
 
@@ -171,13 +203,13 @@ def create_post():
     return render_template("create-post.html")
 
 
-# @app.route('/post/<int:id>')
-# def post(id):
-#     return render_template("post.html")
+@app.route('/post/<int:id>')
+def post(id):
+    return render_template("post.html")
 
 
 @app.errorhandler(404)
-def pageNot(error):
+def page_not_found(error):
     return render_template("error.html")
 
 
