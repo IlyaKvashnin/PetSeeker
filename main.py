@@ -171,9 +171,9 @@ def create_post():
     return render_template("create-post.html")
 
 
-@app.route('/post/<int:id>')
-def post(id):
-    return render_template("post.html")
+# @app.route('/post/<int:id>')
+# def post(id):
+#     return render_template("post.html")
 
 
 @app.errorhandler(404)
